@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 body{
     /* font-size: 1.6rem;
     line-height: 1.8rem; */
-    background:${(props) => props.theme["base-hover"]}
+    background: ${(props) => props.theme['background']};
 } 
 
 `;
