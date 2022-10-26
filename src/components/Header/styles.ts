@@ -5,7 +5,7 @@ export const HeaderContainer = styled.header`
   /* flex-direction: row; */
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: ${(props) => props.theme.background};
 
   nav {
     display: flex;

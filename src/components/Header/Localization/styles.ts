@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const LocalizationContainer = styled.div`
+export const LocalizationContainer = styled.button`
+  border: 0;
   background: ${(props) => props.theme['purple-light']};
   border-radius: 4px;
   padding: 0.2rem;

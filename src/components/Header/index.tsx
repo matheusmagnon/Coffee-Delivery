@@ -1,6 +1,6 @@
 import { HeaderContainer } from './styles';
 import logo from '../../assets/logo.svg';
-import { Cart } from './Cart';
+import { Cart } from '../Cart';
 import { Localization } from './Localization';
 import { NavLink } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ export function Header() {
       <nav>
         <Localization />
         <NavLink to="/checkout" title="Checkout">
-          <Cart />
+          <Cart colorCard="#C47F17" backgroundCard="yellow" />
         </NavLink>
       </nav>
     </HeaderContainer>

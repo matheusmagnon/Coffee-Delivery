@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const LayoutContainer = styled.div`
-  max-width: 1920px;
   display: flex;
   flex-direction: column;
-  align-self: center;
   /* align-items: center; */
-  padding: 1rem 14rem;
+
+  /* width: 1440px; */
+
+  /* align-items: center; */
+  padding: 2rem 20rem;
   background: ${(props) => props.theme.background};
 `;
