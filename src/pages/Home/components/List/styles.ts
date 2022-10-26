@@ -1,36 +1,53 @@
 import styled from 'styled-components';
 
-export const ListContainer = styled.div``;
+export const ListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+`;
 
 export const Card = styled.div`
+  padding: 0 1rem;
+  height: 19.375rem;
+  margin-top: 2.5rem;
+  margin-right: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 16rem;
+  justify-content: flex-end;
+  width: 18rem;
   background: ${(props) => props.theme['base-card']};
   border-radius: 0 8px 0 8px;
   img {
-    width: 7.5rem;
-    margin-top: -1.25rem;
+    /* width: 7.5rem; */
+    /* padding: -1rem; */
   }
   div {
     display: flex;
   }
+
+  h3 {
+    padding-bottom: 1rem;
+  }
   p {
+    padding-bottom: 1rem;
     text-align: center;
     color: ${(props) => props.theme['base-label']};
   }
 `;
 
 export const TagCard = styled.div`
-  border: 1px solid ${(props) => props.theme.yellow};
+  /* border: 1px solid ${(props) => props.theme.yellow}; */
+  display: flex;
+  flex-direction: row;
   padding: 0.3rem;
   border-radius: 10px;
   font-family: 'Roboto';
   font-size: 10px;
   font-weight: bold;
   cursor: pointer;
-  margin: 0.5rem;
+  margin: 1rem 0.5rem;
   color: ${(props) => props.theme['yellow-dark']};
   background: ${(props) => props.theme['yellow-light']};
 
@@ -44,6 +61,7 @@ export const FooterCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-bottom: 0;
   span {
     font-family: 'Baloo 2', sans-serif;
     font-size: 1.5rem;
