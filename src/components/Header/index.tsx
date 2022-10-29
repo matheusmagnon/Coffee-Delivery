@@ -1,8 +1,13 @@
+import { NavLink } from 'react-router-dom';
+
+import { defaultTheme } from '../../styles/themes/default';
+
 import { HeaderContainer } from './styles';
-import logo from '../../assets/logo.svg';
+
 import { Cart } from '../Cart';
 import { Localization } from './Localization';
-import { NavLink } from 'react-router-dom';
+
+import logo from '../../assets/logo.svg';
 
 export function Header() {
   return (
@@ -14,7 +19,10 @@ export function Header() {
       <nav>
         <Localization />
         <NavLink to="/checkout" title="Checkout">
-          <Cart colorCard="#C47F17" backgroundCard="yellow" />
+          <Cart
+            colorCard={defaultTheme['yellow-dark']}
+            backgroundCard="yellow"
+          />
         </NavLink>
       </nav>
     </HeaderContainer>
