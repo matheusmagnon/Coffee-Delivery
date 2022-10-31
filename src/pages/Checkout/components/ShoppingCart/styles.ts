@@ -37,7 +37,12 @@ export const ConfimrButton = styled.button`
 
   background: ${(props) => props.theme['yellow']};
   color: #fff;
+  font-weight: bold;
   border: 0;
   border-radius: 6px;
   padding: 1rem;
+  cursor: pointer;
+  :hover {
+    background: ${(props) => props.theme['yellow-dark']};
+  }
 `;

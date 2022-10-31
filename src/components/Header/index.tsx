@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import { defaultTheme } from '../../styles/themes/default';
 
-import { HeaderContainer } from './styles';
+import { HeaderContainer, ItemsAmount } from './styles';
 
 import { Cart } from '../Cart';
 import { Localization } from './Localization';
@@ -20,7 +20,8 @@ export function Header() {
         <Localization />
         <NavLink to="/checkout" title="Checkout">
           <Cart
-            colorCard={defaultTheme['yellow-dark']}
+            // backgroundCardHover="purpleLight"
+            colorCart={defaultTheme['yellow-dark']}
             backgroundCard="yellow"
           />
         </NavLink>

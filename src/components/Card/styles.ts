@@ -5,13 +5,13 @@ import styled from 'styled-components';
 export const CardContainer = styled.div`
   padding: 0 1rem;
   height: 19.375rem;
-  margin-top: 2.5rem;
+  margin-bottom: 6.5rem;
   margin-right: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  width: 18rem;
+  width: 16rem;
   background: ${(props) => props.theme['base-card']};
   border-radius: 0 8px 0 8px;
 
@@ -55,7 +55,7 @@ export const FooterCard = styled.div`
   padding-bottom: 0;
   span {
     font-family: 'Baloo 2', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: ${(props) => props.theme['base-text']};
   }
 `;

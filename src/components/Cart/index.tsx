@@ -1,18 +1,32 @@
-import { CartContainer } from './styles';
+import { CartContainer, ItemsAmount } from './styles';
 
 import { ShoppingCart } from 'phosphor-react';
 
 type CartProps = {
-  backgroundCard: 'yellow' | 'purpler';
-  colorCard: string;
+  backgroundCard: 'yellow' | 'purple';
+  backgroundCardHover?: 'purpleLight';
+  colorCart: string;
 };
 
 // const teste = (props) =>props.theme.
 
-export function Cart({ colorCard, backgroundCard }: CartProps) {
+export function Cart({
+  colorCart,
+  backgroundCard,
+  backgroundCardHover,
+}: // backgroundHover,
+CartProps) {
   return (
-    <CartContainer backgroundColor={backgroundCard}>
-      <ShoppingCart size={32} color={colorCard} weight="fill" />
-    </CartContainer>
+    <>
+      <CartContainer
+        backgroundColor={backgroundCard}
+        backgroundHoverColor={backgroundCardHover}
+      >
+        <ShoppingCart size={32} color={colorCart} weight="fill" />
+        <ItemsAmount>
+          <span>3</span>
+        </ItemsAmount>
+      </CartContainer>
+    </>
   );
 }

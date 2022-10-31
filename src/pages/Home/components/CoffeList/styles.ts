@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
-export const CoffeListContainer = styled.div``;
+export const CoffeListContainer = styled.div`
+  width: 100%;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const HeaderCoffeList = styled.div`
   display: flex;
+  width: 99%;
   /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;

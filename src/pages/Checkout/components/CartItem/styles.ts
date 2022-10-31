@@ -42,6 +42,10 @@ export const ButtonRemove = styled.button`
   border-radius: 6px;
   border: 0;
   font-family: 'Roboto';
+  cursor: pointer;
+  :hover {
+    background: ${(props) => props.theme['base-hover']};
+  }
 `;
 
 export const Divider = styled.div`

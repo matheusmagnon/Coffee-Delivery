@@ -1,3 +1,4 @@
+import { defaultTheme } from '../../styles/themes/default';
 import { Cart } from '../Cart';
 import { Counter } from './Counter';
 import { CardContainer, FooterCard, TagCard } from './styles';
@@ -23,7 +24,11 @@ export function Card({ CoverImage, Tags, TitleCard, Description }: CardProps) {
       <FooterCard>
         <span>R$ 9,90</span>
         <Counter />
-        <Cart colorCard="#FFF" backgroundCard="purpler" />
+        <Cart
+          colorCart="#FFF"
+          backgroundCard="purple"
+          backgroundCardHover={'purpleLight'}
+        />
       </FooterCard>
     </CardContainer>
   );
