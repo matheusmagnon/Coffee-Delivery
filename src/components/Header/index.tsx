@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import { defaultTheme } from '../../styles/themes/default';
 
-import { HeaderContainer, ItemsAmount } from './styles';
+import { HeaderContainer } from './styles';
 
 import { Cart } from '../Cart';
 import { Localization } from './Localization';

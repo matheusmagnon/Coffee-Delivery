@@ -14,18 +14,15 @@ export function Cart({
   colorCart,
   backgroundCard,
   backgroundCardHover,
-}: // backgroundHover,
-CartProps) {
+}: CartProps) {
   return (
     <>
       <CartContainer
         backgroundColor={backgroundCard}
         backgroundHoverColor={backgroundCardHover}
       >
-        <ShoppingCart size={32} color={colorCart} weight="fill" />
-        <ItemsAmount>
-          <span>3</span>
-        </ItemsAmount>
+        <ShoppingCart size={22} color={colorCart} weight="fill" />
+        {/* <ItemsAmount>2</ItemsAmount> */}
       </CartContainer>
     </>
   );

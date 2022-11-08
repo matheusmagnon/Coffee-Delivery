@@ -32,16 +32,24 @@ export const CartContainer = styled.div<BackgroundProps>`
     background: ${(props) =>
       props.theme[BACKGROUND_COLORS[props.backgroundHoverColor]]};
   }
+
+  svg {
+    /* position: absolute; */
+    z-index: 1;
+  }
 `;
 
-export const ItemsAmount = styled.div`
-  /* display: fixed; */
-  margin-top: -30px;
-  margin-right: -5px;
-  width: 13px;
-  height: 8px;
-  background: red;
-  border-radius: 10px;
-  font-size: 8px;
-  padding-left: 2px;
+export const ItemsAmount = styled.span`
+  font-family: 'Roboto', sans-serif;
+  color: ${(props) => props.theme.white};
+  width: 20px;
+  height: 20px;
+  background: ${(props) => props.theme['yellow-dark']};
+  position: absolute;
+  margin-left: 25px;
+  margin-bottom: 32px;
+  border-radius: 50%;
+  padding-left: 0.33rem;
+  /* top: 20px; */
+  /* left: 20px; */
 `;

@@ -59,19 +59,34 @@ export function FormBody() {
             </span>
           </div>
         </FormHeader>
+
         <ButtonsContaniner>
-          <InputFormButton>
-            <CreditCard size={16} color={defaultTheme['purple']} />
-            <span>CARTÃO DE CRÉDITO</span>
-          </InputFormButton>
-          <InputFormButton>
+          <select value={'e'}>
+            <option value="CARTÃO DE CRÉDITO"></option>
+          </select>
+          {/* <input type={'radio'} id="t" name="ee" />
+          <label>
+            <InputFormButton type={'button'} value="CARTÃO DE CRÉDITO"> */}
+          {/* <CreditCard size={16} color={defaultTheme['purple']} /> */}
+          {/* </InputFormButton>
+          </label> */}
+
+          {/* <input type={'radio'} id="t" name="ee" />
+          <label>
+            <InputFormButton type={'button'} value="CARTÃO DE CRÉDITO"> */}
+          {/* <CreditCard size={16} color={defaultTheme['purple']} /> */}
+          {/* </InputFormButton>
+          </label> */}
+          {/* <InputFormButton>
+          
             <Bank size={16} color={defaultTheme['purple']} />
-            <span>CARTÃO DE DÉBITO</span>
+            CARTÃO DE DÉBITO
+            
           </InputFormButton>
           <InputFormButton>
             <Money size={16} color={defaultTheme['purple']} />
             <span>DINHEIRO</span>
-          </InputFormButton>
+          </InputFormButton> */}
         </ButtonsContaniner>
       </FormBodyContainer>
     </form>
