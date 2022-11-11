@@ -1,15 +1,14 @@
-import { InputHTMLAttributes } from 'react';
-import { defaultTheme } from '../../styles/themes/default';
 import { Cart } from '../Cart';
 import { Counter } from './Counter';
 import { CardContainer, FooterCard, TagCard } from './styles';
 
-type CardProps = {
+export type CardProps = {
   CoverImage?: string;
   Tags?: string[];
   TitleCard?: string;
   Description?: string;
   price: number;
+  id: number;
 };
 
 export function Card({
@@ -18,9 +17,10 @@ export function Card({
   TitleCard,
   Description,
   price,
+  id,
 }: CardProps) {
   return (
-    <CardContainer key="">
+    <CardContainer key={id}>
       <img src={CoverImage} />
       <div>
         {Tags?.map((tag) => {

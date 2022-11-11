@@ -1,4 +1,4 @@
-import { ListBody } from '../List';
+import { ListBody } from '../ListBody';
 import { CoffeListContainer, HeaderCoffeList, Tag } from './styles';
 
 export function CoffeList() {

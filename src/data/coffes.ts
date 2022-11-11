@@ -96,7 +96,7 @@ export const coffes = [
     price: 8.9,
   },
   {
-    id: 12,
+    id: 11,
     tags: ['ESPECIAL'],
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',

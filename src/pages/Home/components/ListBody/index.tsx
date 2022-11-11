@@ -8,6 +8,8 @@ export function ListBody() {
   return (
     <ListContainer>
       {coffes.map((coffe) => {
+        console.log(coffe.id);
+
         return (
           <Card
             price={coffe.price}
@@ -15,7 +17,7 @@ export function ListBody() {
             Description={coffe.description}
             Tags={coffe.tags}
             TitleCard={coffe.name}
-            key={coffe.id}
+            id={coffe.id}
           />
         );
       })}

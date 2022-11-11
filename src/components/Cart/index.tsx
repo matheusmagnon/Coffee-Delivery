@@ -6,6 +6,7 @@ type CartProps = {
   backgroundCard: 'yellow' | 'purple';
   backgroundCardHover?: 'purpleLight';
   colorCart: string;
+  itemsAmount?: number;
 };
 
 // const teste = (props) =>props.theme.
@@ -14,6 +15,7 @@ export function Cart({
   colorCart,
   backgroundCard,
   backgroundCardHover,
+  itemsAmount,
 }: CartProps) {
   return (
     <>
@@ -22,7 +24,7 @@ export function Cart({
         backgroundHoverColor={backgroundCardHover}
       >
         <ShoppingCart size={22} color={colorCart} weight="fill" />
-        {/* <ItemsAmount>2</ItemsAmount> */}
+        {itemsAmount > 0 && <ItemsAmount>{itemsAmount}</ItemsAmount>}
       </CartContainer>
     </>
   );

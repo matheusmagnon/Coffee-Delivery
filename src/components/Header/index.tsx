@@ -8,6 +8,7 @@ import { Cart } from '../Cart';
 import { Localization } from './Localization';
 
 import logo from '../../assets/logo.svg';
+import { ItemsAmount } from '../Cart/styles';
 
 export function Header() {
   return (
@@ -20,10 +21,11 @@ export function Header() {
         <Localization />
         <NavLink to="/checkout" title="Checkout">
           <Cart
-            // backgroundCardHover="purpleLight"
             colorCart={defaultTheme['yellow-dark']}
             backgroundCard="yellow"
+            itemsAmount={2}
           />
+          {/* <ItemsAmount>2</ItemsAmount> */}
         </NavLink>
       </nav>
     </HeaderContainer>
