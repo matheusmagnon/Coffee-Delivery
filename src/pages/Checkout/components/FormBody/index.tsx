@@ -1,10 +1,4 @@
-import {
-  ButtonsContaniner,
-  FormBodyContainer,
-  FormHeader,
-  InputFormButton,
-  InputFormText,
-} from './styles';
+import { FormBodyContainer, FormHeader, InputFormText } from './styles';
 
 import {
   MapPinLine,
@@ -15,6 +9,7 @@ import {
 } from 'phosphor-react';
 
 import { defaultTheme } from '../../../../styles/themes/default';
+import { Payment } from './Payment';
 
 export function FormBody() {
   return (
@@ -59,35 +54,7 @@ export function FormBody() {
             </span>
           </div>
         </FormHeader>
-
-        <ButtonsContaniner>
-          <select value={'e'}>
-            <option value="CARTÃO DE CRÉDITO"></option>
-          </select>
-          {/* <input type={'radio'} id="t" name="ee" />
-          <label>
-            <InputFormButton type={'button'} value="CARTÃO DE CRÉDITO"> */}
-          {/* <CreditCard size={16} color={defaultTheme['purple']} /> */}
-          {/* </InputFormButton>
-          </label> */}
-
-          {/* <input type={'radio'} id="t" name="ee" />
-          <label>
-            <InputFormButton type={'button'} value="CARTÃO DE CRÉDITO"> */}
-          {/* <CreditCard size={16} color={defaultTheme['purple']} /> */}
-          {/* </InputFormButton>
-          </label> */}
-          {/* <InputFormButton>
-          
-            <Bank size={16} color={defaultTheme['purple']} />
-            CARTÃO DE DÉBITO
-            
-          </InputFormButton>
-          <InputFormButton>
-            <Money size={16} color={defaultTheme['purple']} />
-            <span>DINHEIRO</span>
-          </InputFormButton> */}
-        </ButtonsContaniner>
+        <Payment />
       </FormBodyContainer>
     </form>
   );

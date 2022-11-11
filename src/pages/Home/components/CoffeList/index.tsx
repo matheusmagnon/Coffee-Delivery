@@ -1,4 +1,4 @@
-import { List } from '../List';
+import { ListBody } from '../List';
 import { CoffeListContainer, HeaderCoffeList, Tag } from './styles';
 
 export function CoffeList() {
@@ -14,7 +14,7 @@ export function CoffeList() {
           <Tag>GELADO</Tag>
         </div>
       </HeaderCoffeList>
-      <List />
+      <ListBody />
     </CoffeListContainer>
   );
 }

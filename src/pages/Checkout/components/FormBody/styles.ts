@@ -44,49 +44,7 @@ export const InputFormText = styled.input<InputFormTextProps>`
   color: ${(props) => props.theme['base-label']};
   background: ${(props) => props.theme['base-input']};
 
-  :active {
-    border: 1px solid ${(props) => props.theme['yellow-dark']};
-  }
-`;
-
-export const ButtonsContaniner = styled.div`
-  /* padding: 20px; */
-  /* display: flex; */
-  /* justify-content: space-around; */
-  flex-direction: row;
-  /* justify-content: space-between; */
-  /* overflow: hidden; */
-  /* height: 4rem; */
-  background: ${(props) => props.theme['base-card']};
-  border: none;
-  overflow: hidden;
-`;
-
-export const InputFormButton = styled.input`
-  cursor: pointer;
-  display: inline-flex;
-
-  align-items: center;
-  padding: 0.75rem;
-  height: 3.188rem;
-  width: 30%;
-  margin: 10px;
-  background: ${(props) => props.theme['base-button']};
-  color: ${(props) => props.theme['base-text']};
-  border-radius: 6px;
-  border: 0;
-  font-family: 'Roboto';
-  :hover {
-    background: ${(props) => props.theme['base-hover']};
-  }
-  :checked {
-    background: ${(props) => props.theme['purple-light']};
-    border: 1px solid ${(props) => props.theme['purple']};
-  }
-
-  
-
-  span {
-    padding: 0.625rem;
+  &:focus {
+    border-color: ${(props) => props.theme['yellow-dark']};
   }
 `;

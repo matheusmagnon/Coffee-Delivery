@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'react';
 import { defaultTheme } from '../../styles/themes/default';
 import { Cart } from '../Cart';
 import { Counter } from './Counter';
@@ -8,11 +9,18 @@ type CardProps = {
   Tags?: string[];
   TitleCard?: string;
   Description?: string;
+  price: number;
 };
 
-export function Card({ CoverImage, Tags, TitleCard, Description }: CardProps) {
+export function Card({
+  CoverImage,
+  Tags,
+  TitleCard,
+  Description,
+  price,
+}: CardProps) {
   return (
-    <CardContainer>
+    <CardContainer key="">
       <img src={CoverImage} />
       <div>
         {Tags?.map((tag) => {
@@ -22,7 +30,13 @@ export function Card({ CoverImage, Tags, TitleCard, Description }: CardProps) {
       <h3>{TitleCard}</h3>
       <p>{Description}</p>
       <FooterCard>
-        <span>R$ 9,90</span>
+        <span>
+          {' '}
+          {price.toLocaleString('pt-br', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
+        </span>
         <Counter />
         <Cart
           colorCart="#FFF"
