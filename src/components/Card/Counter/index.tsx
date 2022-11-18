@@ -1,10 +1,6 @@
 import { Minus, Plus } from 'phosphor-react';
 import { useContext, useState } from 'react';
-import { CardProps } from '..';
-import {
-  CartItemType,
-  CartListContext,
-} from '../../../context/CartListContext';
+import { CoffeType, CartListContext } from '../../../context/CartListContext';
 import { CounterContainer } from './styles';
 
 export const Counter = ({
@@ -15,48 +11,34 @@ export const Counter = ({
   price,
   id,
   itemsAmount,
-}: // itemsAmount,
-CartItemType) => {
-  const [count, setCount] = useState(0);
+}: CoffeType) => {
+  const quantityOfItems = itemsAmount;
 
-  const { addItem, deleteItem, CartList } = useContext(CartListContext);
+  const { addCoffe, deleteCoffe, cartList } = useContext(CartListContext);
 
-  // CartList.map((item) => {
-  //   if (item.id == id) {
-  //     currentCoffe.itemsAmount=item.itemsAmount
-  //     console.log(item.id, id);
-  //   }
-  // });
-
-  const currentCoffe: CartItemType = {
+  const currentCoffe: CoffeType = {
     id: id,
     price: price,
     coverImage: coverImage,
     description: description,
     tags: tags,
     titleCard: titleCard,
-    itemsAmount: count,
+    itemsAmount: quantityOfItems,
   };
 
-  const handlePlus = (currentCoffe: CartItemType) => {
-    setCount((prev) => prev + 1);
-    addItem(currentCoffe);
-  };
-
-  const handleMinus = (currentCoffe: CartItemType) => {
-    setCount((prev) => prev - 1);
-    deleteItem(currentCoffe);
-  };
+  cartList.map((item) => {
+    if (item.id == id) {
+      currentCoffe.itemsAmount = item.itemsAmount;
+    }
+  });
 
   return (
     <CounterContainer>
-      {count > 0 && (
-        <button onClick={() => handleMinus(currentCoffe)}>
-          <Minus size={14} weight="bold" />
-        </button>
-      )}
-      {currentCoffe.itemsAmount || 0}
-      <button onClick={() => handlePlus(currentCoffe)}>
+      <button onClick={() => deleteCoffe(currentCoffe)}>
+        <Minus size={14} weight="bold" />
+      </button>
+      {currentCoffe.itemsAmount}
+      <button onClick={() => addCoffe(currentCoffe)}>
         <Plus size={14} weight="bold" />
       </button>
     </CounterContainer>

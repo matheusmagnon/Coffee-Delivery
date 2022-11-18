@@ -4,7 +4,7 @@ import { defaultTheme } from '../../styles/themes/default';
 
 import { HeaderContainer } from './styles';
 
-import { Cart } from '../Cart';
+import { Cart } from '../Card/Cart';
 import { Localization } from './Localization';
 
 import logo from '../../assets/logo.svg';
@@ -12,9 +12,9 @@ import { useContext } from 'react';
 import { CartListContext } from '../../context/CartListContext';
 
 export function Header() {
-  const { CartList } = useContext(CartListContext);
+  const { cartList } = useContext(CartListContext);
 
-  var sumItemsCart = CartList.reduce(
+  var sumItemsCart = cartList.reduce(
     (total, current) => total + current.itemsAmount,
     0,
   );

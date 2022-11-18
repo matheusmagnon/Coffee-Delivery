@@ -18,6 +18,7 @@ export const coffes = [
     description: 'O tradicional café feito com água quente e grãos moídos',
     photo: ExpressoTradicional,
     price: 9.5,
+    itemsAmount: 0,
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ export const coffes = [
     description: 'Expresso diluído, menos intenso que o tradicional',
     photo: ExpressoAmericano,
     price: 8.9,
+    itemsAmount: 0,
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const coffes = [
     description: 'Café expresso tradicional com espuma cremosa',
     photo: ExpressoCremoso,
     price: 9.9,
+    itemsAmount: 0,
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ export const coffes = [
     description: 'Bebida preparada com café expresso e cubos de gelo',
     photo: ExpressoGelado,
     price: 5.9,
+    itemsAmount: 0,
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ export const coffes = [
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     photo: CafeComLeite,
     price: 6.9,
+    itemsAmount: 0,
   },
   {
     id: 6,
@@ -59,6 +64,7 @@ export const coffes = [
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     photo: Latte,
     price: 9.9,
+    itemsAmount: 0,
   },
   {
     id: 7,
@@ -68,6 +74,7 @@ export const coffes = [
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     photo: Cappuccino,
     price: 4.9,
+    itemsAmount: 0,
   },
   {
     id: 8,
@@ -77,6 +84,7 @@ export const coffes = [
       'Café expresso misturado com um pouco de leite quente e espuma',
     photo: Macchiato,
     price: 7.9,
+    itemsAmount: 0,
   },
   {
     id: 9,
@@ -85,6 +93,7 @@ export const coffes = [
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     photo: Mocaccino,
     price: 9.9,
+    itemsAmount: 0,
   },
   {
     id: 10,
@@ -94,6 +103,7 @@ export const coffes = [
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     photo: Cubano,
     price: 8.9,
+    itemsAmount: 0,
   },
   {
     id: 11,
@@ -102,5 +112,6 @@ export const coffes = [
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     photo: Arabe,
     price: 9.9,
+    itemsAmount: 0,
   },
 ];

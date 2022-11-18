@@ -1,22 +1,37 @@
 import { ConfimrButton, ShoppingCartContainer, ValuesSummary } from './styles';
 
 import { CartItem } from '../CartItem';
-import { useContext } from 'react';
+import { ReactNode, useContext } from 'react';
 import { CartListContext } from '../../../../context/CartListContext';
 
 export function ShoppingCart() {
-  const { CartList } = useContext(CartListContext);
+  const { cartList } = useContext(CartListContext);
+
+  // const [valueTotalItems, setValueTotalItems] = useState(0);
+
+  let tt = 0;
+  let deliveryValue = 1;
+
+  var valueTotalItems = cartList.reduce(
+    (total, current) => total + current.itemsAmount * current.price,
+    0,
+  );
   return (
     <div>
       <ShoppingCartContainer>
-        {CartList.map((item) => {
+        {cartList.map((item) => {
+          const valueItem: number = item.price;
+          const quantityItem = item.itemsAmount;
+          const totalValueItem = quantityItem * valueItem;
+
           return (
             <CartItem
               key={item.id}
-              price={item.price.toLocaleString('pt-br', {
+              priceString={totalValueItem.toLocaleString('pt-br', {
                 style: 'currency',
                 currency: 'BRL',
               })}
+              price={item.price}
               coverImage={item.coverImage}
               description={item.description}
               tags={item.tags}
@@ -31,7 +46,7 @@ export function ShoppingCart() {
           <div>
             <p>Total de Itens </p>
             <p>
-              {(15.8).toLocaleString('pt-br', {
+              {(valueTotalItems || 0).toLocaleString('pt-br', {
                 style: 'currency',
                 currency: 'BRL',
               })}
@@ -41,7 +56,7 @@ export function ShoppingCart() {
           <div>
             <p>Entrega </p>
             <p>
-              {(9.9).toLocaleString('pt-br', {
+              {deliveryValue.toLocaleString('pt-br', {
                 style: 'currency',
                 currency: 'BRL',
               })}
@@ -51,7 +66,7 @@ export function ShoppingCart() {
           <div>
             <h2>Total</h2>
             <h2>
-              {(9.9).toLocaleString('pt-br', {
+              {(valueTotalItems + deliveryValue).toLocaleString('pt-br', {
                 style: 'currency',
                 currency: 'BRL',
               })}

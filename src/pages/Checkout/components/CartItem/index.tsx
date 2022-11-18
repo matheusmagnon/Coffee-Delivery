@@ -1,8 +1,12 @@
 import { Trash } from 'phosphor-react';
 import { Counter } from '../../../../components/Card/Counter';
-import { CartItemType } from '../../../../context/CartListContext';
+import { CoffeType } from '../../../../context/CartListContext';
 import { defaultTheme } from '../../../../styles/themes/default';
 import { ActionsItem, ButtonRemove, Divider, Item, ItemHeader } from './styles';
+
+interface CartItemType extends CoffeType {
+  priceString?: string;
+}
 
 export function CartItem({
   itemsAmount,
@@ -12,7 +16,18 @@ export function CartItem({
   description,
   tags,
   titleCard,
+  priceString,
 }: CartItemType) {
+  const currentCoffe: CoffeType = {
+    id: id,
+    price: price,
+    coverImage: coverImage,
+    description: description,
+    tags: tags,
+    titleCard: titleCard,
+    itemsAmount: itemsAmount,
+  };
+
   return (
     <Item>
       <img src={coverImage} />
@@ -20,13 +35,13 @@ export function CartItem({
         <p>{titleCard}</p>
         <ActionsItem>
           <Counter
+            id={id}
+            itemsAmount={itemsAmount}
             price={price}
             coverImage={coverImage}
             description={description}
             tags={tags}
             titleCard={titleCard}
-            id={id}
-            itemsAmount={itemsAmount}
           />
           <ButtonRemove>
             <Trash size={16} color={defaultTheme.purple} />
@@ -34,7 +49,7 @@ export function CartItem({
           </ButtonRemove>
         </ActionsItem>
       </ItemHeader>
-      <span>{price}</span>
+      <span>{priceString}</span>
       <Divider />
     </Item>
   );

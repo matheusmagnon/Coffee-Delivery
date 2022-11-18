@@ -17,7 +17,7 @@ export function ListBody() {
             titleCard={coffe.name}
             id={coffe.id}
             key={coffe.id}
-            itemsAmount={0}
+            itemsAmount={coffe.itemsAmount}
           />
         );
       })}

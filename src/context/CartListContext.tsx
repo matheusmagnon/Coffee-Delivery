@@ -1,20 +1,20 @@
 import { createContext, ReactNode, useState } from 'react';
 
-export type CartItemType = {
+export type CoffeType = {
   coverImage?: string;
   tags?: string[];
   titleCard?: string;
   description?: string;
-  price: number | string;
+  price: number;
   id: number;
   itemsAmount: number;
 };
 
 interface CartContextType {
-  addItem: (newItem: CartItemType) => void;
-  deleteItem: (newItem: CartItemType) => void;
-  CartList: CartItemType[];
-  currentCoffe?: CartItemType;
+  addCoffe: (newCoffe: CoffeType) => void;
+  deleteCoffe: (coffe: CoffeType) => void;
+  cartList: CoffeType[];
+  currentCoffe?: CoffeType;
 }
 
 interface CartContextProviderProps {
@@ -24,63 +24,65 @@ interface CartContextProviderProps {
 export const CartListContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [CartList, setCartList] = useState<CartItemType[]>([]);
+  const [cartList, setCartList] = useState<CoffeType[]>([]);
 
-  const changeQuantilyMinus = (id: number) => {
-    setCartList(
-      CartList.map((item) => {
-        if (item.id === id) {
-          const contItems = item.itemsAmount;
-          return { ...item, itemsAmount: contItems - 1 };
-        } else {
-          return item;
-        }
-      }),
-    );
+  //Altera a quantidade de itens de um item no carrinho
+  const changeQuantity = (idCoffe: number, action: string) => {
+    if (action == 'decrease') {
+      setCartList(
+        cartList.map((coffeInCart) => {
+          if (coffeInCart.id === idCoffe) {
+            const contItems = coffeInCart.itemsAmount;
+            return { ...coffeInCart, itemsAmount: contItems - 1 };
+          } else {
+            return coffeInCart;
+          }
+        }),
+      );
+    } else if (action == 'increse') {
+      setCartList(
+        cartList.map((coffeInCart) => {
+          if (coffeInCart.id === idCoffe) {
+            const contItems = coffeInCart.itemsAmount;
+            return { ...coffeInCart, itemsAmount: contItems + 1 };
+          } else {
+            return coffeInCart;
+          }
+        }),
+      );
+    }
   };
 
-  const deleteItem = (itemToDelete: CartItemType) => {
-    const coffeeAlreadyExistsInCart = CartList.findIndex(
-      (cartItem) => cartItem.id == itemToDelete.id,
-    );
-
-    coffeeAlreadyExistsInCart >= 0
-      ? changeQuantilyMinus(itemToDelete.id)
-      : setCartList(CartList.filter((coffe) => coffe.id !== itemToDelete.id));
-  };
-
-  //Muda o valor de itemsAmount do item repetido +
-  const changeQuantilyPlus = (id: number) => {
-    setCartList(
-      CartList.map((item) => {
-        if (item.id === id) {
-          const contItems = item.itemsAmount;
-          return { ...item, itemsAmount: contItems + 1 };
-        } else {
-          return item;
-        }
-      }),
-    );
+  const deleteCoffe = (itemToDelete: CoffeType) => {
+    itemToDelete.itemsAmount == 1
+      ? setCartList(cartList.filter((coffe) => coffe.id !== itemToDelete.id))
+      : changeQuantity(itemToDelete.id, 'decrease');
   };
 
   //Adiciona o novo item no carrinho de compras
-  const addItem = (newItem: CartItemType) => {
+  const addCoffe = (newItem: CoffeType) => {
     newItem.itemsAmount = 1;
 
-    const coffeeAlreadyExistsInCart = CartList.findIndex(
+    const coffeeAlreadyExistsInCart = cartList.findIndex(
       (cartItem) => cartItem.id == newItem.id,
     );
 
     //Verifica se o café existe
     coffeeAlreadyExistsInCart >= 0
-      ? changeQuantilyPlus(newItem.id)
+      ? changeQuantity(newItem.id, 'increse')
       : setCartList((prevItem) => [...prevItem, newItem]);
   };
 
-  console.log(CartList);
+  console.log(cartList);
 
   return (
-    <CartListContext.Provider value={{ addItem, deleteItem, CartList }}>
+    <CartListContext.Provider
+      value={{
+        addCoffe,
+        deleteCoffe,
+        cartList,
+      }}
+    >
       {children}
     </CartListContext.Provider>
   );

@@ -2,7 +2,7 @@ import { CartContainer, ItemsAmount } from './styles';
 
 import { ShoppingCart } from 'phosphor-react';
 import { useContext } from 'react';
-import { CartListContext } from '../../context/CartListContext';
+import { CartListContext } from '../../../context/CartListContext';
 
 type CartProps = {
   backgroundCard: 'yellow' | 'purple';
@@ -17,7 +17,7 @@ export function Cart({
   backgroundCardHover,
   itemsAmount,
 }: CartProps) {
-  const { CartList } = useContext(CartListContext);
+  const { cartList } = useContext(CartListContext);
 
   return (
     <>

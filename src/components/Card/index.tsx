@@ -1,21 +1,9 @@
-import { useContext } from 'react';
-import { CartListContext } from '../../context/CartListContext';
-import { Cart } from '../Cart';
+import { CoffeType } from '../../context/CartListContext';
+import { Cart } from './Cart';
 import { Counter } from './Counter';
 import { CardContainer, FooterCard, TagCard } from './styles';
 
-// const { CartList } = useContext(CartListContext);
-
-export type CardProps = {
-  coverImage?: string;
-  tags?: string[];
-  titleCard?: string;
-  description?: string;
-  price: number;
-  id: number;
-  itemsAmount: number;
-  // children?: React.ReactNode;
-};
+interface CardProps extends CoffeType {}
 
 export function Card({
   coverImage,
