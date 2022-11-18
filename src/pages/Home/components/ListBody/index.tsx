@@ -8,16 +8,16 @@ export function ListBody() {
   return (
     <ListContainer>
       {coffes.map((coffe) => {
-        console.log(coffe.id);
-
         return (
           <Card
             price={coffe.price}
-            CoverImage={coffe.photo}
-            Description={coffe.description}
-            Tags={coffe.tags}
-            TitleCard={coffe.name}
+            coverImage={coffe.photo}
+            description={coffe.description}
+            tags={coffe.tags}
+            titleCard={coffe.name}
             id={coffe.id}
+            key={coffe.id}
+            itemsAmount={0}
           />
         );
       })}

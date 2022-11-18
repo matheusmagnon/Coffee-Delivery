@@ -1,29 +1,40 @@
 import { Trash } from 'phosphor-react';
 import { Counter } from '../../../../components/Card/Counter';
+import { CartItemType } from '../../../../context/CartListContext';
 import { defaultTheme } from '../../../../styles/themes/default';
 import { ActionsItem, ButtonRemove, Divider, Item, ItemHeader } from './styles';
 
-type CartItemProps = {
-  CoverImage?: string;
-  TitleCard?: string;
-  Value?: string;
-};
-
-export function CartItem({ CoverImage, TitleCard, Value }: CartItemProps) {
+export function CartItem({
+  itemsAmount,
+  id,
+  price,
+  coverImage,
+  description,
+  tags,
+  titleCard,
+}: CartItemType) {
   return (
     <Item>
-      <img src={CoverImage} />
+      <img src={coverImage} />
       <ItemHeader>
-        <p>{TitleCard}</p>
+        <p>{titleCard}</p>
         <ActionsItem>
-          <Counter />
+          <Counter
+            price={price}
+            coverImage={coverImage}
+            description={description}
+            tags={tags}
+            titleCard={titleCard}
+            id={id}
+            itemsAmount={itemsAmount}
+          />
           <ButtonRemove>
             <Trash size={16} color={defaultTheme.purple} />
             <span> REMOVER</span>
           </ButtonRemove>
         </ActionsItem>
       </ItemHeader>
-      <span>{Value}</span>
+      <span>{price}</span>
       <Divider />
     </Item>
   );

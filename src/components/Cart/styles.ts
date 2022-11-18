@@ -41,6 +41,7 @@ export const CartContainer = styled.div<BackgroundProps>`
 
 export const ItemsAmount = styled.span`
   font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   color: ${(props) => props.theme.white};
   width: 20px;
   height: 20px;

@@ -9,6 +9,8 @@ export const LocalizationContainer = styled.button`
 
 export const TextLocation = styled.span`
   color: ${(props) => props.theme['purple-dark']};
+  font-size: 1rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
 `;

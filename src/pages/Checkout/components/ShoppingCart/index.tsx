@@ -1,29 +1,32 @@
 import { ConfimrButton, ShoppingCartContainer, ValuesSummary } from './styles';
 
-import ExpressoTradicional from '../../../../assets/coffeesImages/expresso-tradicional.svg';
-import Latte from '../../../../assets/coffeesImages/latte.svg';
 import { CartItem } from '../CartItem';
+import { useContext } from 'react';
+import { CartListContext } from '../../../../context/CartListContext';
 
 export function ShoppingCart() {
+  const { CartList } = useContext(CartListContext);
   return (
-    <>
+    <div>
       <ShoppingCartContainer>
-        <CartItem
-          CoverImage={ExpressoTradicional}
-          TitleCard="Expresso Tradicional"
-          Value={(9.9).toLocaleString('pt-br', {
-            style: 'currency',
-            currency: 'BRL',
-          })}
-        />
-        <CartItem
-          CoverImage={Latte}
-          TitleCard="Latte"
-          Value={(5.9).toLocaleString('pt-br', {
-            style: 'currency',
-            currency: 'BRL',
-          })}
-        />
+        {CartList.map((item) => {
+          return (
+            <CartItem
+              key={item.id}
+              price={item.price.toLocaleString('pt-br', {
+                style: 'currency',
+                currency: 'BRL',
+              })}
+              coverImage={item.coverImage}
+              description={item.description}
+              tags={item.tags}
+              titleCard={item.titleCard}
+              id={item.id}
+              itemsAmount={item.itemsAmount}
+            />
+          );
+        })}
+
         <ValuesSummary>
           <div>
             <p>Total de Itens </p>
@@ -57,6 +60,6 @@ export function ShoppingCart() {
         </ValuesSummary>
         <ConfimrButton>CONFIRMAR PEDIDO</ConfimrButton>
       </ShoppingCartContainer>
-    </>
+    </div>
   );
 }

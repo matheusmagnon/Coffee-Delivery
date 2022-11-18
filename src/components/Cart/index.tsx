@@ -1,6 +1,8 @@
 import { CartContainer, ItemsAmount } from './styles';
 
 import { ShoppingCart } from 'phosphor-react';
+import { useContext } from 'react';
+import { CartListContext } from '../../context/CartListContext';
 
 type CartProps = {
   backgroundCard: 'yellow' | 'purple';
@@ -9,22 +11,26 @@ type CartProps = {
   itemsAmount?: number;
 };
 
-// const teste = (props) =>props.theme.
-
 export function Cart({
   colorCart,
   backgroundCard,
   backgroundCardHover,
   itemsAmount,
 }: CartProps) {
+  const { CartList } = useContext(CartListContext);
+
   return (
     <>
       <CartContainer
         backgroundColor={backgroundCard}
         backgroundHoverColor={backgroundCardHover}
       >
+        {/* <input> */}
         <ShoppingCart size={22} color={colorCart} weight="fill" />
-        {itemsAmount > 0 && <ItemsAmount>{itemsAmount}</ItemsAmount>}
+        {itemsAmount != undefined && itemsAmount > 0 && (
+          <ItemsAmount>{itemsAmount}</ItemsAmount>
+        )}
+        {/* </input> */}
       </CartContainer>
     </>
   );

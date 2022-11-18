@@ -1,29 +1,64 @@
 import { Minus, Plus } from 'phosphor-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { CardProps } from '..';
+import {
+  CartItemType,
+  CartListContext,
+} from '../../../context/CartListContext';
 import { CounterContainer } from './styles';
 
-export function Counter() {
+export const Counter = ({
+  coverImage,
+  tags,
+  titleCard,
+  description,
+  price,
+  id,
+  itemsAmount,
+}: // itemsAmount,
+CartItemType) => {
   const [count, setCount] = useState(0);
 
-  const [coffeInCart, setCoffeInCart] = useState<CardProps>();
+  const { addItem, deleteItem, CartList } = useContext(CartListContext);
 
-  const handleMinus = () => {
-    setCount((prev) => prev - 1);
+  // CartList.map((item) => {
+  //   if (item.id == id) {
+  //     currentCoffe.itemsAmount=item.itemsAmount
+  //     console.log(item.id, id);
+  //   }
+  // });
+
+  const currentCoffe: CartItemType = {
+    id: id,
+    price: price,
+    coverImage: coverImage,
+    description: description,
+    tags: tags,
+    titleCard: titleCard,
+    itemsAmount: count,
   };
 
-  const handlePlus = () => {
+  const handlePlus = (currentCoffe: CartItemType) => {
     setCount((prev) => prev + 1);
+    addItem(currentCoffe);
   };
+
+  const handleMinus = (currentCoffe: CartItemType) => {
+    setCount((prev) => prev - 1);
+    deleteItem(currentCoffe);
+  };
+
   return (
     <CounterContainer>
-      <button onClick={handleMinus}>
-        <Minus size={14} weight="bold" />
-      </button>
-      {count}
-      <button onClick={handlePlus}>
+      {count > 0 && (
+        <button onClick={() => handleMinus(currentCoffe)}>
+          <Minus size={14} weight="bold" />
+        </button>
+      )}
+      {currentCoffe.itemsAmount || 0}
+      <button onClick={() => handlePlus(currentCoffe)}>
         <Plus size={14} weight="bold" />
       </button>
     </CounterContainer>
   );
-}
+};

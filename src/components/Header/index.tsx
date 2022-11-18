@@ -8,9 +8,17 @@ import { Cart } from '../Cart';
 import { Localization } from './Localization';
 
 import logo from '../../assets/logo.svg';
-import { ItemsAmount } from '../Cart/styles';
+import { useContext } from 'react';
+import { CartListContext } from '../../context/CartListContext';
 
 export function Header() {
+  const { CartList } = useContext(CartListContext);
+
+  var sumItemsCart = CartList.reduce(
+    (total, current) => total + current.itemsAmount,
+    0,
+  );
+
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
@@ -23,7 +31,7 @@ export function Header() {
           <Cart
             colorCart={defaultTheme['yellow-dark']}
             backgroundCard="yellow"
-            itemsAmount={2}
+            itemsAmount={sumItemsCart}
           />
           {/* <ItemsAmount>2</ItemsAmount> */}
         </NavLink>
