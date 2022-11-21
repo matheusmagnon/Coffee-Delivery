@@ -43,7 +43,7 @@ export function Card({
         <Cart
           colorCart="#FFF"
           backgroundCard="purple"
-          backgroundCardHover={'purpleLight'}
+          backgroundCardHover="purpleLight"
         />
       </FooterCard>
     </CardContainer>

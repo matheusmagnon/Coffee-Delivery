@@ -8,7 +8,7 @@ const BACKGROUND_COLORS = {
 
 interface BackgroundProps {
   backgroundColor: 'yellow' | 'purple';
-  backgroundHoverColor: 'purpleLight';
+  readonly backgroundHoverColor: 'purpleLight';
 }
 
 export const CartContainer = styled.div<BackgroundProps>`

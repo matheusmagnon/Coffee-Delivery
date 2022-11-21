@@ -6,7 +6,8 @@ import { CartListContext } from '../../../context/CartListContext';
 
 type CartProps = {
   backgroundCard: 'yellow' | 'purple';
-  backgroundCardHover?: 'purpleLight';
+  //Um problema de tipagem
+  backgroundCardHover?: any;
   colorCart: string;
   itemsAmount?: number;
 };
