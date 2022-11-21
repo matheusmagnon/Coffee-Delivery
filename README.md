@@ -7,7 +7,7 @@ Desafio de React do ignite (Rocketseat)
 <img src="./Capa.png" /> <br/> <br/>
 
 ## Design da aplicação
-- Clique [aqui](https://www.figma.com/file/21gfmeoPiOsjw64m2zlz6B/Coffee-Delivery-(Copy)?node-id=0%3A1) para acessar a aplicação em produção(apenas desktop)
+- Clique [aqui](https://coffe-delivery-all4s.ondigitalocean.app/) para acessar a aplicação em produção(apenas desktop)
 - Clique [aqui](https://www.figma.com/file/21gfmeoPiOsjw64m2zlz6B/Coffee-Delivery-(Copy)?node-id=0%3A1) para acessar o layout no Figma
 
 ## Funcionalidades da aplicação
