@@ -12,12 +12,7 @@ import { useContext } from 'react';
 import { CartListContext } from '../../context/CartListContext';
 
 export function Header() {
-  const { cartList } = useContext(CartListContext);
-
-  var sumItemsCart = cartList.reduce(
-    (total, current) => total + current.itemsAmount,
-    0,
-  );
+  const { totalItemsInCart } = useContext(CartListContext);
 
   return (
     <HeaderContainer>
@@ -27,14 +22,11 @@ export function Header() {
 
       <nav>
         <Localization />
-        <NavLink to="/checkout" title="Checkout">
-          <Cart
-            colorCart={defaultTheme['yellow-dark']}
-            backgroundCard="yellow"
-            itemsAmount={sumItemsCart}
-          />
-          {/* <ItemsAmount>2</ItemsAmount> */}
-        </NavLink>
+        <Cart
+          colorCart={defaultTheme['yellow-dark']}
+          backgroundCard="yellow"
+          itemsAmount={totalItemsInCart}
+        />
       </nav>
     </HeaderContainer>
   );

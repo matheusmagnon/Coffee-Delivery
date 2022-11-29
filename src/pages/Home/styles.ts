@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const IntoContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   padding: 6rem 0;
-  /* height: 300px; */
 
   span {
     font-size: 20px;
@@ -42,42 +40,23 @@ export const Items = styled.div`
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem;
-    /* background: red; */
   }
 `;
 
-export const Shopping = styled.div`
-  background: ${(props) => props.theme['yellow-dark']};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.8rem;
-  height: 1.8rem;
-`;
+const BACKGROUND_COLORS = {
+  yellowDark: 'yellow-dark',
+  yellowNormal: 'yellow',
+  gray: 'base-text',
+  purpleNormal: 'purple',
+} as const;
 
-export const TimerDelivery = styled.div`
-  background: ${(props) => props.theme['yellow']};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.8rem;
-  height: 1.8rem;
-`;
+interface BackgroundProps {
+  backgroundColor: 'yellowDark' | 'yellowNormal' | 'purpleNormal' | 'gray';
+}
 
-export const PackDelivery = styled.div`
-  background: ${(props) => props.theme['base-text']};
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.8rem;
-  height: 1.8rem;
-`;
-
-export const FreshCoffe = styled.div`
-  background: ${(props) => props.theme['purple']};
+export const BackgroundIcon = styled.div<BackgroundProps>`
+  background: ${(props) =>
+    props.theme[BACKGROUND_COLORS[props.backgroundColor]]};
   border-radius: 50%;
   display: flex;
   justify-content: center;

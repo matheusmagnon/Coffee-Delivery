@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CoffeListContainer = styled.div`
-  width: 100%;
+  /* width: 100%; */
   /* background: red; */
   display: flex;
   flex-direction: column;

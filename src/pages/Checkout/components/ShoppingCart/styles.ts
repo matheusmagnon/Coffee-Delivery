@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 export const ShoppingCartContainer = styled.div`
@@ -8,6 +7,11 @@ export const ShoppingCartContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px 44px 6px 44px;
   width: 448px;
+  a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const ValuesSummary = styled.div`
@@ -30,9 +34,6 @@ export const ValuesSummary = styled.div`
 `;
 
 export const ConfimrButton = styled.button`
-  display: flex;
-  align-self: center;
-  justify-content: center;
   margin-bottom: 20px;
   width: 80%;
 

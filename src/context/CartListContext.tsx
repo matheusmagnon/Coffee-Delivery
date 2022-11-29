@@ -15,6 +15,8 @@ interface CartContextType {
   deleteCoffe: (coffe: CoffeType) => void;
   cartList: CoffeType[];
   currentCoffe?: CoffeType;
+  totalItemsInCart: number;
+  // emptyCart: () => void;
 }
 
 interface CartContextProviderProps {
@@ -25,6 +27,13 @@ export const CartListContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [cartList, setCartList] = useState<CoffeType[]>([]);
+
+  // const emptyCart = () => setCartList(0);
+
+  const totalItemsInCart = cartList.reduce(
+    (total, current) => total + current.itemsAmount,
+    0,
+  );
 
   //Altera a quantidade de itens de um item no carrinho
   const changeQuantity = (idCoffe: number, action: string) => {
@@ -81,6 +90,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addCoffe,
         deleteCoffe,
         cartList,
+        totalItemsInCart,
+        // emptyCart,
       }}
     >
       {children}

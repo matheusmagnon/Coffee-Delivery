@@ -1,12 +1,6 @@
 import { FormBodyContainer, FormHeader, InputFormText } from './styles';
 
-import {
-  MapPinLine,
-  CurrencyDollarSimple,
-  CreditCard,
-  Bank,
-  Money,
-} from 'phosphor-react';
+import { MapPinLine, CurrencyDollarSimple } from 'phosphor-react';
 
 import { defaultTheme } from '../../../../styles/themes/default';
 import { Payment } from './Payment';

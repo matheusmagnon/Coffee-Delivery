@@ -3,9 +3,11 @@ import { CartContainer, ItemsAmount } from './styles';
 import { ShoppingCart } from 'phosphor-react';
 import { useContext } from 'react';
 import { CartListContext } from '../../../context/CartListContext';
+import { NavLink } from 'react-router-dom';
 
 type CartProps = {
   backgroundCard: 'yellow' | 'purple';
+
   //Um problema de tipagem
   backgroundCardHover?: any;
   colorCart: string;
@@ -19,20 +21,20 @@ export function Cart({
   itemsAmount,
 }: CartProps) {
   const { cartList } = useContext(CartListContext);
-
+  // const
   return (
     <>
-      <CartContainer
-        backgroundColor={backgroundCard}
-        backgroundHoverColor={backgroundCardHover}
-      >
-        {/* <input> */}
-        <ShoppingCart size={22} color={colorCart} weight="fill" />
-        {itemsAmount != undefined && itemsAmount > 0 && (
-          <ItemsAmount>{itemsAmount}</ItemsAmount>
-        )}
-        {/* </input> */}
-      </CartContainer>
+      <NavLink to="/checkout" title="Checkout">
+        <CartContainer
+          backgroundColor={backgroundCard}
+          backgroundHoverColor={backgroundCardHover}
+        >
+          <ShoppingCart size={22} color={colorCart} weight="fill" />
+          {itemsAmount != undefined && itemsAmount > 0 && (
+            <ItemsAmount>{itemsAmount}</ItemsAmount>
+          )}
+        </CartContainer>
+      </NavLink>
     </>
   );
 }

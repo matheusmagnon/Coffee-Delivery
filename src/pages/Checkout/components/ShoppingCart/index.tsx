@@ -1,8 +1,9 @@
 import { ConfimrButton, ShoppingCartContainer, ValuesSummary } from './styles';
 
 import { CartItem } from '../CartItem';
-import { ReactNode, useContext } from 'react';
+import { useContext } from 'react';
 import { CartListContext } from '../../../../context/CartListContext';
+import { NavLink } from 'react-router-dom';
 
 export function ShoppingCart() {
   const { cartList } = useContext(CartListContext);
@@ -73,7 +74,9 @@ export function ShoppingCart() {
             </h2>
           </div>
         </ValuesSummary>
-        <ConfimrButton>CONFIRMAR PEDIDO</ConfimrButton>
+        <NavLink to="/success" title="Sucesso">
+          <ConfimrButton>CONFIRMAR PEDIDO</ConfimrButton>
+        </NavLink>
       </ShoppingCartContainer>
     </div>
   );
