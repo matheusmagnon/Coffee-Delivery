@@ -5,7 +5,6 @@ export const Item = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 1.875rem;
 
   img {
     width: 64px;
@@ -37,7 +36,6 @@ export const ActionsItem = styled.div`
 export const ButtonRemove = styled.button`
   display: flex;
   align-items: center;
-  padding-left: 0.3rem;
   background: ${(props) => props.theme['base-button']};
   border-radius: 6px;
   border: 0;
@@ -50,7 +48,7 @@ export const ButtonRemove = styled.button`
 
 export const Divider = styled.div`
   display: flex;
-  padding-top: 1rem;
   width: 80%;
   border-bottom: 2px solid ${(props) => props.theme['base-button']};
+  margin: 1.5rem;
 `;

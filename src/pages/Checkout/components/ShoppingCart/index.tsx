@@ -10,7 +10,6 @@ export function ShoppingCart() {
 
   // const [valueTotalItems, setValueTotalItems] = useState(0);
 
-  let tt = 0;
   let deliveryValue = 1;
 
   var valueTotalItems = cartList.reduce(
@@ -19,6 +18,7 @@ export function ShoppingCart() {
   );
   return (
     <div>
+      <h2>Cafés selecionados</h2>
       <ShoppingCartContainer>
         {cartList.map((item) => {
           const valueItem: number = item.price;
@@ -42,7 +42,6 @@ export function ShoppingCart() {
             />
           );
         })}
-
         <ValuesSummary>
           <div>
             <p>Total de Itens </p>
@@ -74,9 +73,9 @@ export function ShoppingCart() {
             </h2>
           </div>
         </ValuesSummary>
-        <NavLink to="/success" title="Sucesso">
-          <ConfimrButton>CONFIRMAR PEDIDO</ConfimrButton>
-        </NavLink>
+        {/* <NavLink to="/success" title="Sucesso"> */}
+        <ConfimrButton type={'submit'}>CONFIRMAR PEDIDO</ConfimrButton>
+        {/* </NavLink> */}
       </ShoppingCartContainer>
     </div>
   );

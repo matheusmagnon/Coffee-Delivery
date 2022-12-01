@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
 export const FormHeader = styled.div`
   display: flex;
   div {
@@ -21,11 +28,15 @@ export const FormHeader = styled.div`
 export const FormBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 760px;
+  width: 44rem;
   padding: 2.5rem;
   margin-top: 0.75rem;
   border-radius: 2px;
   background: ${(props) => props.theme['base-card']};
+`;
+
+export const FormBodyPayment = styled(FormBodyContainer)`
+  margin-top: -120px;
 `;
 
 interface InputFormTextProps {
