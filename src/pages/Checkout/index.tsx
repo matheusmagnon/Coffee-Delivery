@@ -9,7 +9,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as zod from 'zod';
 
-const newOrderFormValidationSchema = zod.object({
+const newFormAddressValidationSchema = zod.object({
   cep: zod.string().min(8, 'Informe o CEP'),
   street: zod.string().min(1, 'Informe sua rua'),
   number: zod.string().min(1, 'Informe o numero'),
@@ -19,7 +19,7 @@ const newOrderFormValidationSchema = zod.object({
   state: zod.string().min(1, 'Informe seu estado'),
 });
 
-export type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>;
+export type NewOrderFormData = zod.infer<typeof newFormAddressValidationSchema>;
 
 export function Checkout() {
   const newOrderForm = useForm<NewOrderFormData>({

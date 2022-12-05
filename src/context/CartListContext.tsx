@@ -16,6 +16,7 @@ interface CartContextType {
   cartList: CoffeType[];
   currentCoffe?: CoffeType;
   totalItemsInCart: number;
+  resetCartList: () => void;
   // emptyCart: () => void;
 }
 
@@ -27,6 +28,10 @@ export const CartListContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [cartList, setCartList] = useState<CoffeType[]>([]);
+  const initialState = typeof cartList;
+  console.log(initialState);
+
+  const resetCartList = () => setCartList([]);
 
   // const emptyCart = () => setCartList(0);
 
@@ -89,6 +94,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       value={{
         addCoffe,
         deleteCoffe,
+        resetCartList,
         cartList,
         totalItemsInCart,
         // emptyCart,

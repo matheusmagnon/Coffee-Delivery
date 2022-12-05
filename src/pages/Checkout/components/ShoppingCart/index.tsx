@@ -73,9 +73,9 @@ export function ShoppingCart() {
             </h2>
           </div>
         </ValuesSummary>
-        {/* <NavLink to="/success" title="Sucesso"> */}
-        <ConfimrButton type={'submit'}>CONFIRMAR PEDIDO</ConfimrButton>
-        {/* </NavLink> */}
+        <NavLink to="/success" title="Sucesso">
+          <ConfimrButton type={'submit'}>CONFIRMAR PEDIDO</ConfimrButton>
+        </NavLink>
       </ShoppingCartContainer>
     </div>
   );

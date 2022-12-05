@@ -25,7 +25,7 @@ export const FormHeader = styled.div`
   }
 `;
 
-export const FormBodyContainer = styled.div`
+export const FormBodyAddress = styled.div`
   display: flex;
   flex-direction: column;
   width: 44rem;
@@ -35,9 +35,7 @@ export const FormBodyContainer = styled.div`
   background: ${(props) => props.theme['base-card']};
 `;
 
-export const FormBodyPayment = styled(FormBodyContainer)`
-  margin-top: -120px;
-`;
+export const FormBodyPayment = styled(FormBodyAddress)``;
 
 interface InputFormTextProps {
   InputWidth?: string;
