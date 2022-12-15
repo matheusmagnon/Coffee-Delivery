@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { CoffeType } from '../../context/CartListContext';
 import { Cart } from './Cart';
 import { Counter } from './Counter';
@@ -6,41 +7,25 @@ import { CardContainer, FooterCard, TagCard } from './styles';
 
 interface CardProps extends CoffeType {}
 
-export function Card({
-  coverImage,
-  tags,
-  titleCard,
-  description,
-  price,
-  id,
-  itemsAmount,
-}: CardProps) {
+export function Card(currentCoffe: CardProps) {
   return (
-    <CardContainer key={id}>
-      <img src={coverImage} />
-      <div key={titleCard}>
-        {tags?.map((tag) => {
-          return <TagCard>{tag}</TagCard>;
+    <CardContainer key={currentCoffe.id}>
+      <img src={currentCoffe?.coverImage} />
+      <div>
+        {currentCoffe.tags?.map((tag) => {
+          return <TagCard key={uuidv4()}>{tag}</TagCard>;
         })}
       </div>
-      <h3>{titleCard}</h3>
-      <p>{description}</p>
+      <h3>{currentCoffe.titleCard}</h3>
+      <p>{currentCoffe.description}</p>
       <FooterCard>
         <span>
-          {price.toLocaleString('pt-br', {
+          {currentCoffe.price.toLocaleString('pt-br', {
             style: 'currency',
             currency: 'BRL',
           })}
         </span>
-        <Counter
-          price={price}
-          coverImage={coverImage}
-          description={description}
-          tags={tags}
-          titleCard={titleCard}
-          id={id}
-          itemsAmount={itemsAmount}
-        />
+        <Counter {...currentCoffe} key={currentCoffe.id} />
         <Cart
           colorCart="#FFF"
           backgroundCard="purple"

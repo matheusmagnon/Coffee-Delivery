@@ -63,7 +63,7 @@ export const coffes = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     photo: Latte,
-    price: 9.9,
+    price: 9.3,
     itemsAmount: 0,
   },
   {
@@ -73,7 +73,7 @@ export const coffes = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     photo: Cappuccino,
-    price: 4.9,
+    price: 7.9,
     itemsAmount: 0,
   },
   {
@@ -83,7 +83,7 @@ export const coffes = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     photo: Macchiato,
-    price: 7.9,
+    price: 7.5,
     itemsAmount: 0,
   },
   {
@@ -92,7 +92,7 @@ export const coffes = [
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     photo: Mocaccino,
-    price: 9.9,
+    price: 9.8,
     itemsAmount: 0,
   },
   {
@@ -102,7 +102,7 @@ export const coffes = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     photo: Cubano,
-    price: 8.9,
+    price: 2.9,
     itemsAmount: 0,
   },
   {
@@ -111,7 +111,7 @@ export const coffes = [
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     photo: Arabe,
-    price: 9.9,
+    price: 9.3,
     itemsAmount: 0,
   },
 ];

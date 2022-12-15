@@ -3,10 +3,24 @@ import { ConfimrButton, ShoppingCartContainer, ValuesSummary } from './styles';
 import { CartItem } from '../CartItem';
 import { useContext } from 'react';
 import { CartListContext } from '../../../../context/CartListContext';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, Navigate, NavLink } from 'react-router-dom';
 
-export function ShoppingCart() {
-  const { cartList } = useContext(CartListContext);
+export function ShoppingCart(orderT: any) {
+  const { resetCartList, cartList, order } = useContext(CartListContext);
+
+  let navigate = useNavigate();
+
+  const routeChange = () => {
+    navigate(`/success`);
+
+    // });
+  };
+  // const Data = order?.state;
+  //
+  // console.log(Data);
+  // console.log(props);
+
+  // const city = order?.city;
 
   // const [valueTotalItems, setValueTotalItems] = useState(0);
 
@@ -16,6 +30,7 @@ export function ShoppingCart() {
     (total, current) => total + current.itemsAmount * current.price,
     0,
   );
+
   return (
     <div>
       <h2>Cafés selecionados</h2>
@@ -34,8 +49,6 @@ export function ShoppingCart() {
               })}
               price={item.price}
               coverImage={item.coverImage}
-              description={item.description}
-              tags={item.tags}
               titleCard={item.titleCard}
               id={item.id}
               itemsAmount={item.itemsAmount}
@@ -73,8 +86,17 @@ export function ShoppingCart() {
             </h2>
           </div>
         </ValuesSummary>
+        {/* <NavLink
+          to={{
+            pathname: '/success',
+          }}
+          state={`${order}`}
+        > */}
         <NavLink to="/success" title="Sucesso">
-          <ConfimrButton type={'submit'}>CONFIRMAR PEDIDO</ConfimrButton>
+          <ConfimrButton type={'submit'} onClick={resetCartList}>
+            CONFIRMAR PEDIDO
+          </ConfimrButton>
+          {/* </Link> */}
         </NavLink>
       </ShoppingCartContainer>
     </div>

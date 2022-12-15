@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 2rem 10%;
+  margin: 0.1rem 10%;
   /* column-gap: 100px; */
   background: ${(props) => props.theme.background};
   max-width: 1440px;

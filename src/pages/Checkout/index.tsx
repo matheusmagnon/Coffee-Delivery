@@ -17,6 +17,7 @@ const newFormAddressValidationSchema = zod.object({
   neighborhood: zod.string().min(1, 'Informe a sua rua'),
   city: zod.string().min(1, 'Informe a cidade'),
   state: zod.string().min(1, 'Informe seu estado'),
+  paymentMethod: zod.string().min(1, 'Informe o metodo de pagamento'),
 });
 
 export type NewOrderFormData = zod.infer<typeof newFormAddressValidationSchema>;
@@ -25,13 +26,6 @@ export function Checkout() {
   const newOrderForm = useForm<NewOrderFormData>({
     // resolver: zodResolver(newOrderFormValidationSchema),
   });
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   // watch
-  //   // formState: { errors },
-  // } = newOrderForm;
   return (
     <CheckoutContainer>
       <FormProvider {...newOrderForm}>

@@ -1,9 +1,6 @@
 import { useContext } from 'react';
 
-import {
-  CoffeType,
-  CartListContext,
-} from '../../../../context/CartListContext';
+import { CartListContext } from '../../../../context/CartListContext';
 
 import { MapPinLine, CurrencyDollarSimple } from 'phosphor-react';
 
@@ -22,22 +19,25 @@ import { Payment } from './Payment';
 import { ShoppingCart } from '../ShoppingCart';
 
 export function FormBody() {
-  const { resetCartList, cartList } = useContext(CartListContext);
+  const { order, cartList } = useContext(CartListContext);
   const { register, reset, handleSubmit } = useFormContext<NewOrderFormData>();
 
   interface OrderType extends NewOrderFormData {
     cartList?: typeof cartList;
   }
 
-  function handleCreateNewOrder(order: OrderType) {
+  const handleCreateNewOrder = (order: OrderType) => {
     order.cartList = cartList;
+
     console.log(order);
+    // resetCartList();
+
     // console.log(cartList);
     // console.log();
-    resetCartList();
-    reset();
-  }
-  // console.log(errors);
+
+    // reset();
+  };
+
   return (
     <form onSubmit={handleSubmit(handleCreateNewOrder)} action="">
       <FormContainer>
@@ -101,7 +101,7 @@ export function FormBody() {
             </div>
           </FormBodyAddress>
         </div>
-        <ShoppingCart />
+
         <FormBodyPayment>
           <FormHeader>
             <CurrencyDollarSimple size={22} color={defaultTheme['purple']} />
@@ -114,6 +114,7 @@ export function FormBody() {
           </FormHeader>
           <Payment />
         </FormBodyPayment>
+        <ShoppingCart />
       </FormContainer>
     </form>
   );

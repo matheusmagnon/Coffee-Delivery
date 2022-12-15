@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  justify-content: space-between;
+  height: 100vh;
+  /* justify-content: space-between; */
 `;
 
 export const FormHeader = styled.div`
@@ -30,7 +32,7 @@ export const FormBodyAddress = styled.div`
   flex-direction: column;
   width: 44rem;
   padding: 2.5rem;
-  margin-top: 0.75rem;
+
   border-radius: 2px;
   background: ${(props) => props.theme['base-card']};
 `;

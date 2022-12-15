@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   display: flex;
-  /* flex-direction: row; */
+  padding: 0.5rem 10%;
+  opacity: 0.8;
+  position: fixed;
+  width: 100%;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) => props.theme.background};

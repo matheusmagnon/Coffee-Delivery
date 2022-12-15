@@ -1,4 +1,9 @@
 import { createContext, ReactNode, useState } from 'react';
+import { NewOrderFormData } from '../pages/Checkout/index';
+
+interface OrderType extends NewOrderFormData {
+  cartList?: CoffeType[];
+}
 
 export type CoffeType = {
   coverImage?: string;
@@ -17,7 +22,8 @@ interface CartContextType {
   currentCoffe?: CoffeType;
   totalItemsInCart: number;
   resetCartList: () => void;
-  // emptyCart: () => void;
+  order?: OrderType;
+  // createOrder: (cartlist: CoffeType[]) => void;
 }
 
 interface CartContextProviderProps {
@@ -27,13 +33,19 @@ interface CartContextProviderProps {
 export const CartListContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const [order, setOrder] = useState<OrderType>();
   const [cartList, setCartList] = useState<CoffeType[]>([]);
-  const initialState = typeof cartList;
-  console.log(initialState);
+
+  // const createOrder = (cartList: CoffeType[]) => {
+  // setOrder((prevOrder) => [...prevOrder, newOrder]);
+  // setOrder({ ...order, cartList: cartList });
+  // const contItems = coffeInCart.itemsAmount;
+  // return order;newOrder
+  // };
+  // console.log('🚀 ~ file: CartListContext.tsx:40 ~ createOrder ~ order', order);
+  // console.log(order);
 
   const resetCartList = () => setCartList([]);
-
-  // const emptyCart = () => setCartList(0);
 
   const totalItemsInCart = cartList.reduce(
     (total, current) => total + current.itemsAmount,
@@ -75,19 +87,27 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   //Adiciona o novo item no carrinho de compras
   const addCoffe = (newItem: CoffeType) => {
+    //Para o item vigente não inciar com 0
     newItem.itemsAmount = 1;
 
+    //Verifica se já existe o coffe vigente no cartList
     const coffeeAlreadyExistsInCart = cartList.findIndex(
       (cartItem) => cartItem.id == newItem.id,
     );
 
-    //Verifica se o café existe
+    //Se o coffe vigente existir vai executar o changeQuantity, se não seta o coffe vigete no array
     coffeeAlreadyExistsInCart >= 0
       ? changeQuantity(newItem.id, 'increse')
       : setCartList((prevItem) => [...prevItem, newItem]);
   };
 
-  console.log(cartList);
+  // console.log(cartList);
+
+  // interface OrderType extends NewOrderFormData {
+  //   cartList?: typeof cartList;
+  // }
+
+  // const order = { cartList: cartList };
 
   return (
     <CartListContext.Provider
@@ -97,7 +117,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         resetCartList,
         cartList,
         totalItemsInCart,
-        // emptyCart,
+        order,
+        // createOrder,
       }}
     >
       {children}

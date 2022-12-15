@@ -4,9 +4,11 @@ import { LayoutContainer } from './styles';
 
 export function DefaultLayout() {
   return (
-    <LayoutContainer>
+    <>
       <Header />
-      <Outlet />
-    </LayoutContainer>
+      <LayoutContainer>
+        <Outlet />
+      </LayoutContainer>
+    </>
   );
 }

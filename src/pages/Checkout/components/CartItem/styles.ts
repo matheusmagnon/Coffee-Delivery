@@ -36,6 +36,7 @@ export const ActionsItem = styled.div`
 export const ButtonRemove = styled.button`
   display: flex;
   align-items: center;
+  padding: 0.2rem;
   background: ${(props) => props.theme['base-button']};
   border-radius: 6px;
   border: 0;

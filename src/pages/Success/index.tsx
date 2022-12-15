@@ -13,9 +13,16 @@ import { MapPin, Timer, CurrencyDollarSimple } from 'phosphor-react';
 import { BackgroundIcon } from '../Home/styles';
 import IllustrationSuccess from '../../assets/IllustrationSuccess.svg';
 import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 
-export function Success() {
-  //
+export function Success(props: any) {
+  const { order } = useContext(CartListContext);
+  console.log('🚀 ~ file: index.tsx:20 ~ Success ~ order', order);
+  console.log(props);
+
+  const location = useLocation();
+  const state = location;
+  console.log(state);
 
   return (
     <SuccessContainer>
