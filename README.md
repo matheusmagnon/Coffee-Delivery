@@ -19,10 +19,16 @@ Desafio de React do ignite (Rocketseat)
 ## Tecnologias utilizadas
 - React
 - Typescript
+- Vite
 - Styled components
 - React router
 - React hook form
 - Zod
+- Axios
+- Phosphor React
+- uuid
+
+
 
 ## Como executar a aplicação 
 
