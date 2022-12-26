@@ -33,17 +33,8 @@ interface CartContextProviderProps {
 export const CartListContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [order, setOrder] = useState<OrderType>();
+  // const [order, setOrder] = useState<OrderType>();
   const [cartList, setCartList] = useState<CoffeType[]>([]);
-
-  // const createOrder = (cartList: CoffeType[]) => {
-  // setOrder((prevOrder) => [...prevOrder, newOrder]);
-  // setOrder({ ...order, cartList: cartList });
-  // const contItems = coffeInCart.itemsAmount;
-  // return order;newOrder
-  // };
-  // console.log('🚀 ~ file: CartListContext.tsx:40 ~ createOrder ~ order', order);
-  // console.log(order);
 
   const resetCartList = () => setCartList([]);
 
@@ -87,27 +78,21 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   //Adiciona o novo item no carrinho de compras
   const addCoffe = (newItem: CoffeType) => {
-    //Para o item vigente não inciar com 0
-    newItem.itemsAmount = 1;
-
     //Verifica se já existe o coffe vigente no cartList
     const coffeeAlreadyExistsInCart = cartList.findIndex(
       (cartItem) => cartItem.id == newItem.id,
     );
 
-    //Se o coffe vigente existir vai executar o changeQuantity, se não seta o coffe vigete no array
-    coffeeAlreadyExistsInCart >= 0
+    console.log(coffeeAlreadyExistsInCart);
+
+    // Para o item vigente iniciar com 1
+    newItem.itemsAmount = 1;
+
+    //Se o coffe vigente existir vai executar o changeQuantity, se não adiciona o coffe vigete no array
+    coffeeAlreadyExistsInCart > -1
       ? changeQuantity(newItem.id, 'increse')
       : setCartList((prevItem) => [...prevItem, newItem]);
   };
-
-  // console.log(cartList);
-
-  // interface OrderType extends NewOrderFormData {
-  //   cartList?: typeof cartList;
-  // }
-
-  // const order = { cartList: cartList };
 
   return (
     <CartListContext.Provider
@@ -117,7 +102,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         resetCartList,
         cartList,
         totalItemsInCart,
-        order,
+        // order,
         // createOrder,
       }}
     >
