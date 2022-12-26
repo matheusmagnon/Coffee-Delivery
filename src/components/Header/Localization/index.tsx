@@ -59,10 +59,10 @@ export function Localization() {
   };
 
   if (!localization.locality) {
-    localization.locality = 'Sua cidade';
+    localization.locality = 'Florianópolis';
   }
   if (!localization.region_code) {
-    localization.region_code = 'ESTADO';
+    localization.region_code = 'SC';
   }
 
   return (
