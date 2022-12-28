@@ -20,6 +20,9 @@ Desafio de React do ignite (Rocketseat)
 - React
 - Typescript
 - Vite
+- Context API
+- useReducer
+- Immer
 - Styled components
 - React router
 - React hook form
