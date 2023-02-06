@@ -38,11 +38,11 @@ Desafio de React do ignite (Rocketseat)
 ### Instalação
 1. Clone o repositório
 ```bash
-git clone https://github.com/Magon0/Project-Pomodoro
+git clone https://github.com/matheusmagnon/Coffee-Delivery.git
 ```
 2. Acesse a pasta do projeto
 ```bash
-cd Project-pomodoro
+cd Coffee-Delivery
 ```
 3. Instale as dependências necessárias 
 ```bash
