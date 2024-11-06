@@ -8,7 +8,6 @@ import { Home } from './pages/Home';
 import { Success } from './pages/Success';
 
 export function Router() {
-  const { order } = useContext(CartListContext);
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
