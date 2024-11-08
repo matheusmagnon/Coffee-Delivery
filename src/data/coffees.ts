@@ -10,7 +10,7 @@ import Mocaccino from '../assets/coffeesImages/mocaccino.svg';
 import Cubano from '../assets/coffeesImages/cubano.svg';
 import Arabe from '../assets/coffeesImages/arabe.svg';
 
-export const coffes = [
+export const coffees = [
   {
     id: 1,
     tags: ['TRADICIONAL'],

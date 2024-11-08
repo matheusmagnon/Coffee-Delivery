@@ -2,22 +2,22 @@ import { ListContainer } from './styles';
 
 import { Card } from '../../../../components/Card';
 
-import { coffes } from '../../../../data/coffes';
+import { coffees } from '../../../../data/coffees';
 
 export function ListBody() {
   return (
     <ListContainer>
-      {coffes.map((coffe) => {
+      {coffees.map((coffee) => {
         return (
           <Card
-            price={coffe.price}
-            coverImage={coffe.photo}
-            description={coffe.description}
-            tags={coffe.tags}
-            titleCard={coffe.name}
-            id={coffe.id}
-            key={coffe.id}
-            itemsAmount={coffe.itemsAmount}
+            price={coffee.price}
+            coverImage={coffee.photo}
+            description={coffee.description}
+            tags={coffee.tags}
+            titleCard={coffee.name}
+            id={coffee.id}
+            key={coffee.id}
+            itemsAmount={coffee.itemsAmount}
           />
         );
       })}
