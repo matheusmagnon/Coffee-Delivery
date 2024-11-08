@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { CoffeType } from '../../context/CartListContext';
+// import { CoffeType } from '../../context/CartListContext';
+import { CoffeType } from '../../reducers/cartList/reducer';
 import { Cart } from './Cart';
 import { Counter } from './Counter';
 import { CardContainer, FooterCard, TagCard } from './styles';
@@ -9,8 +10,8 @@ interface CardProps extends CoffeType {}
 
 export function Card(currentCoffe: CardProps) {
   return (
-    <CardContainer key={currentCoffe.id}>
-      <img src={currentCoffe?.coverImage} />
+    <CardContainer data-testid="card-container" key={currentCoffe.id}>
+      <img src={currentCoffe?.coverImage} alt={currentCoffe.titleCard} />
       <div>
         {currentCoffe.tags?.map((tag) => {
           return <TagCard key={uuidv4()}>{tag}</TagCard>;
