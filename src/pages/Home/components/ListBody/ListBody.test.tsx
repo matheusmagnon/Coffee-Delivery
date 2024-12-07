@@ -1,5 +1,5 @@
-import { logRoles, render, screen } from '../../../../test-utils/testing-library-utils';
-import { describe, expect, test, it } from "vitest";
+import { render, screen } from '../../../../test-utils/testing-library-utils';
+import { describe, expect, it } from "vitest";
 import { ListBody } from '.';
 import { coffees } from '../../../../data/coffees';
 import { CartListContext } from '../../../../context/CartListContext';
@@ -24,6 +24,7 @@ describe('ListBody Component', () => {
           );
 
         coffees.forEach(async coffee => {
+
         //Check if all the cards are rendered
         const cards = screen.getAllByTestId('card-container');
         expect(cards).toHaveLength(coffees.length);

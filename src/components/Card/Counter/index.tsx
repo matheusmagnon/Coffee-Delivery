@@ -1,6 +1,7 @@
 import { Minus, Plus } from 'phosphor-react';
 import { useContext, useState } from 'react';
-import { CoffeType, CartListContext } from '../../../context/CartListContext';
+import { CartListContext } from '../../../context/CartListContext';
+import { CoffeType } from '../../../reducers/cartList/reducer';
 import { CounterContainer } from './styles';
 
 export const Counter = ({
